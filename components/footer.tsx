@@ -64,15 +64,15 @@ export function Footer() {
     <footer className="bg-primary text-primary-foreground">
       {/* Brand Partners */}
       <div className="border-b border-primary-foreground/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-slide-in-up">
           <h3 className="text-center font-serif text-xl font-bold mb-6">Trusted Brand Partners</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
             {brandLogos.map((brand) => (
               <div
                 key={brand.name}
-                className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 opacity-70 hover:opacity-100 hover-scale"
               >
-                <img src={brand.logo || "/placeholder.svg"} alt={brand.name} className="h-8 w-auto object-contain" />
+                <img src={brand.logo} alt={brand.name} className="h-8 w-auto object-contain" />
               </div>
             ))}
           </div>
@@ -81,9 +81,9 @@ export function Footer() {
 
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 animate-slide-in-up">
           {/* Company Info */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 animate-slide-in-left">
             <div className="mb-6">
               <h2 className="font-serif text-2xl font-bold mb-2">Luxe Tiles</h2>
               <p className="text-primary-foreground/80 leading-relaxed">
@@ -113,15 +113,15 @@ export function Footer() {
 
             {/* Certifications */}
             <div className="mt-6 flex flex-wrap gap-2">
-              <div className="flex items-center gap-1 text-xs bg-primary-foreground/10 px-2 py-1 rounded">
+              <div className="flex items-center gap-1 text-xs bg-primary-foreground/10 px-2 py-1 rounded hover-scale">
                 <Award className="h-3 w-3 text-secondary" />
                 <span>Licensed</span>
               </div>
-              <div className="flex items-center gap-1 text-xs bg-primary-foreground/10 px-2 py-1 rounded">
+              <div className="flex items-center gap-1 text-xs bg-primary-foreground/10 px-2 py-1 rounded hover-scale">
                 <Shield className="h-3 w-3 text-secondary" />
                 <span>Insured</span>
               </div>
-              <div className="flex items-center gap-1 text-xs bg-primary-foreground/10 px-2 py-1 rounded">
+              <div className="flex items-center gap-1 text-xs bg-primary-foreground/10 px-2 py-1 rounded hover-scale">
                 <Leaf className="h-3 w-3 text-secondary" />
                 <span>Eco-Friendly</span>
               </div>
@@ -129,14 +129,14 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="animate-slide-in-up stagger-2">
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-primary-foreground/80 hover:text-secondary transition-colors duration-300 text-sm"
+                    className="text-primary-foreground/80 hover:text-secondary transition-colors duration-300 text-sm hover-scale inline-block"
                   >
                     {link.name}
                   </a>
@@ -146,14 +146,14 @@ export function Footer() {
           </div>
 
           {/* Products */}
-          <div>
+          <div className="animate-slide-in-up stagger-3">
             <h3 className="font-semibold text-lg mb-4">Products</h3>
             <ul className="space-y-2">
               {productCategories.map((category) => (
                 <li key={category.name}>
                   <a
                     href={category.href}
-                    className="text-primary-foreground/80 hover:text-secondary transition-colors duration-300 text-sm"
+                    className="text-primary-foreground/80 hover:text-secondary transition-colors duration-300 text-sm hover-scale inline-block"
                   >
                     {category.name}
                   </a>
@@ -163,14 +163,14 @@ export function Footer() {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="animate-slide-in-up stagger-4">
             <h3 className="font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.name}>
                   <a
                     href={service.href}
-                    className="text-primary-foreground/80 hover:text-secondary transition-colors duration-300 text-sm"
+                    className="text-primary-foreground/80 hover:text-secondary transition-colors duration-300 text-sm hover-scale inline-block"
                   >
                     {service.name}
                   </a>
@@ -181,7 +181,7 @@ export function Footer() {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="mt-12 pt-8 border-t border-primary-foreground/10">
+        <div className="mt-12 pt-8 border-t border-primary-foreground/10 animate-slide-in-up">
           <div className="max-w-md mx-auto text-center lg:text-left lg:max-w-none lg:flex lg:items-center lg:justify-between">
             <div className="lg:flex-1">
               <h3 className="font-serif text-xl font-bold mb-2">Stay Updated</h3>
@@ -194,11 +194,11 @@ export function Footer() {
                 <Input
                   type="email"
                   placeholder="Enter your email"
-                  className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60"
+                 className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60 hover-scale"
                 />
                 <Button
                   variant="secondary"
-                  className="bg-secondary text-secondary-foreground hover:bg-secondary/90 flex-shrink-0"
+                 className="bg-secondary text-secondary-foreground hover:bg-secondary/90 flex-shrink-0 hover-lift animate-pulse-glow"
                 >
                   Subscribe
                 </Button>
@@ -208,7 +208,7 @@ export function Footer() {
         </div>
 
         {/* Social Links */}
-        <div className="mt-8 pt-8 border-t border-primary-foreground/10">
+        <div className="mt-8 pt-8 border-t border-primary-foreground/10 animate-slide-in-up">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="flex gap-4">
               {socialLinks.map((social) => {
@@ -217,7 +217,7 @@ export function Footer() {
                   <a
                     key={social.name}
                     href={social.href}
-                    className={`text-primary-foreground/60 ${social.color} transition-colors duration-300`}
+                    className={`text-primary-foreground/60 ${social.color} transition-all duration-300 hover-scale animate-float`}
                     aria-label={social.name}
                   >
                     <IconComponent className="h-5 w-5" />
@@ -232,17 +232,17 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-primary-foreground/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 animate-slide-in-up">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/60">
             <div>© 2024 Luxe Tiles. All rights reserved. | Crafting luxury since 1985.</div>
             <div className="flex gap-6">
-              <a href="#privacy" className="hover:text-secondary transition-colors duration-300">
+              <a href="#privacy" className="hover:text-secondary transition-colors duration-300 hover-scale">
                 Privacy Policy
               </a>
-              <a href="#terms" className="hover:text-secondary transition-colors duration-300">
+              <a href="#terms" className="hover:text-secondary transition-colors duration-300 hover-scale">
                 Terms of Service
               </a>
-              <a href="#accessibility" className="hover:text-secondary transition-colors duration-300">
+              <a href="#accessibility" className="hover:text-secondary transition-colors duration-300 hover-scale">
                 Accessibility
               </a>
             </div>

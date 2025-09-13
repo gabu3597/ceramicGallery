@@ -13,7 +13,7 @@ const testimonials = [
     location: "Beverly Hills, CA",
     rating: 5,
     text: "The team at Luxe Tiles transformed our master bathroom into a spa-like retreat. Their attention to detail and expertise in marble installation is unmatched. We couldn't be happier with the results!",
-    image: "/placeholder.svg?key=sarah-mitchell",
+    image: "/placeholder-user.jpg",
     project: "Master Bathroom Renovation",
   },
   {
@@ -23,7 +23,7 @@ const testimonials = [
     location: "Manhattan, NY",
     rating: 5,
     text: "As a designer, I've worked with many tile suppliers, but Luxe Tiles consistently delivers exceptional quality and service. Their product knowledge and design consultation services are invaluable.",
-    image: "/placeholder.svg?key=michael-chen",
+    image: "/placeholder-user.jpg",
     project: "Luxury Penthouse Design",
   },
   {
@@ -33,7 +33,7 @@ const testimonials = [
     location: "Miami, FL",
     rating: 5,
     text: "The custom tile work for our commercial project exceeded all expectations. From initial consultation to final installation, the professionalism and craftsmanship were outstanding.",
-    image: "/placeholder.svg?key=emma-rodriguez",
+    image: "/placeholder-user.jpg",
     project: "Boutique Hotel Lobby",
   },
   {
@@ -43,7 +43,7 @@ const testimonials = [
     location: "Austin, TX",
     rating: 5,
     text: "Our kitchen backsplash installation was flawless. The team helped us choose the perfect tiles and the installation was completed on time and within budget. Highly recommended!",
-    image: "/placeholder.svg?key=david-thompson",
+    image: "/placeholder-user.jpg",
     project: "Kitchen Renovation",
   },
   {
@@ -53,7 +53,7 @@ const testimonials = [
     location: "Seattle, WA",
     rating: 5,
     text: "Working with Luxe Tiles on multiple properties has been a pleasure. Their reliability, quality products, and competitive pricing make them our go-to tile supplier.",
-    image: "/placeholder.svg?key=lisa-park",
+    image: "/placeholder-user.jpg",
     project: "Residential Development",
   },
   {
@@ -63,7 +63,7 @@ const testimonials = [
     location: "Phoenix, AZ",
     rating: 5,
     text: "The outdoor patio tiles have held up beautifully through extreme weather conditions. The consultation process helped us choose the perfect weather-resistant options.",
-    image: "/placeholder.svg?key=james-wilson",
+    image: "/placeholder-user.jpg",
     project: "Outdoor Living Space",
   },
 ]
@@ -117,8 +117,8 @@ export function TestimonialsSection() {
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <div className="w-12 h-1 bg-secondary mx-auto mb-6" />
+        <div className="text-center mb-16 animate-slide-in-up">
+          <div className="w-12 h-1 bg-secondary mx-auto mb-6 animate-shimmer" />
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
             What Our Clients Say
           </h2>
@@ -135,14 +135,14 @@ export function TestimonialsSection() {
             {getVisibleTestimonials().map((testimonial, index) => (
               <Card
                 key={`${testimonial.id}-${index}`}
-                className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className={`border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover-lift animate-scale-in stagger-${index + 1}`}
               >
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <img
-                      src={testimonial.image || "/placeholder.svg"}
+                      src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover mr-4"
+                      className="w-12 h-12 rounded-full object-cover mr-4 hover-scale transition-transform duration-300"
                     />
                     <div>
                       <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
@@ -155,7 +155,7 @@ export function TestimonialsSection() {
                   <div className="flex items-center mb-4">{renderStars(testimonial.rating)}</div>
 
                   <div className="relative mb-4">
-                    <Quote className="absolute -top-2 -left-2 h-6 w-6 text-secondary/20" />
+                    <Quote className="absolute -top-2 -left-2 h-6 w-6 text-secondary/20 animate-float" />
                     <p className="text-muted-foreground leading-relaxed pl-4 italic">"{testimonial.text}"</p>
                   </div>
 
@@ -167,13 +167,13 @@ export function TestimonialsSection() {
 
           {/* Mobile/Tablet View - 1 card */}
           <div className="lg:hidden mb-8">
-            <Card className="border-0 shadow-lg">
+            <Card className="border-0 shadow-lg hover-lift animate-scale-in">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   <img
-                    src={testimonials[currentIndex].image || "/placeholder.svg"}
+                    src={testimonials[currentIndex].image}
                     alt={testimonials[currentIndex].name}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
+                    className="w-12 h-12 rounded-full object-cover mr-4 hover-scale transition-transform duration-300"
                   />
                   <div>
                     <h4 className="font-semibold text-foreground">{testimonials[currentIndex].name}</h4>
@@ -186,7 +186,7 @@ export function TestimonialsSection() {
                 <div className="flex items-center mb-4">{renderStars(testimonials[currentIndex].rating)}</div>
 
                 <div className="relative mb-4">
-                  <Quote className="absolute -top-2 -left-2 h-6 w-6 text-secondary/20" />
+                  <Quote className="absolute -top-2 -left-2 h-6 w-6 text-secondary/20 animate-float" />
                   <p className="text-muted-foreground leading-relaxed pl-4 italic">
                     "{testimonials[currentIndex].text}"
                   </p>
@@ -205,7 +205,7 @@ export function TestimonialsSection() {
               variant="outline"
               size="sm"
               onClick={prevTestimonial}
-              className="w-10 h-10 rounded-full p-0 border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+              className="w-10 h-10 rounded-full p-0 border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent hover-scale"
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -216,8 +216,8 @@ export function TestimonialsSection() {
                 <button
                   key={index}
                   onClick={() => goToTestimonial(index)}
-                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                    index === currentIndex ? "bg-primary" : "bg-muted-foreground/30"
+                  className={`w-2 h-2 rounded-full transition-all duration-500 hover-scale ${
+                    index === currentIndex ? "bg-primary animate-pulse-glow" : "bg-muted-foreground/30"
                   }`}
                 />
               ))}
@@ -227,7 +227,7 @@ export function TestimonialsSection() {
               variant="outline"
               size="sm"
               onClick={nextTestimonial}
-              className="w-10 h-10 rounded-full p-0 border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+              className="w-10 h-10 rounded-full p-0 border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent hover-scale"
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
@@ -235,22 +235,22 @@ export function TestimonialsSection() {
         </div>
 
         {/* Stats Section */}
-        <div className="mt-20 bg-primary/5 rounded-2xl p-8 sm:p-12">
+        <div className="mt-20 bg-primary/5 rounded-2xl p-8 sm:p-12 hover-lift animate-slide-in-up">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl sm:text-4xl font-bold text-primary mb-2">2,500+</div>
+            <div className="hover-scale animate-scale-in stagger-1">
+              <div className="text-3xl sm:text-4xl font-bold text-primary mb-2 animate-pulse-glow">2,500+</div>
               <div className="text-muted-foreground">Projects Completed</div>
             </div>
-            <div>
-              <div className="text-3xl sm:text-4xl font-bold text-primary mb-2">98%</div>
+            <div className="hover-scale animate-scale-in stagger-2">
+              <div className="text-3xl sm:text-4xl font-bold text-primary mb-2 animate-pulse-glow">98%</div>
               <div className="text-muted-foreground">Customer Satisfaction</div>
             </div>
-            <div>
-              <div className="text-3xl sm:text-4xl font-bold text-primary mb-2">35+</div>
+            <div className="hover-scale animate-scale-in stagger-3">
+              <div className="text-3xl sm:text-4xl font-bold text-primary mb-2 animate-pulse-glow">35+</div>
               <div className="text-muted-foreground">Years Experience</div>
             </div>
-            <div>
-              <div className="text-3xl sm:text-4xl font-bold text-primary mb-2">50+</div>
+            <div className="hover-scale animate-scale-in stagger-4">
+              <div className="text-3xl sm:text-4xl font-bold text-primary mb-2 animate-pulse-glow">50+</div>
               <div className="text-muted-foreground">Design Awards</div>
             </div>
           </div>

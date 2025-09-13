@@ -55,8 +55,8 @@ export function ContactSection() {
     <section className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <div className="w-12 h-1 bg-secondary mx-auto mb-6" />
+        <div className="text-center mb-16 animate-slide-in-up">
+          <div className="w-12 h-1 bg-secondary mx-auto mb-6 animate-shimmer" />
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance">
             Get In Touch
           </h2>
@@ -68,7 +68,7 @@ export function ContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="border-0 shadow-lg">
+          <Card className="border-0 shadow-lg hover-lift animate-slide-in-left">
             <CardContent className="p-8">
               <div className="mb-6">
                 <h3 className="font-serif text-2xl font-bold text-foreground mb-2">Send Us a Message</h3>
@@ -79,7 +79,7 @@ export function ContactSection() {
 
               {isSubmitted ? (
                 <div className="text-center py-8">
-                  <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                  <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4 animate-scale-in" />
                   <h4 className="font-semibold text-foreground mb-2">Message Sent Successfully!</h4>
                   <p className="text-muted-foreground">
                     Thank you for your inquiry. We'll be in touch with you shortly.
@@ -176,7 +176,7 @@ export function ContactSection() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3"
+                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3 hover-lift animate-pulse-glow"
                   >
                     {isSubmitting ? (
                       <>
@@ -198,14 +198,14 @@ export function ContactSection() {
           {/* Contact Information & Map */}
           <div className="space-y-8">
             {/* Contact Info */}
-            <Card className="border-0 shadow-lg">
+           <Card className="border-0 shadow-lg hover-lift animate-slide-in-right">
               <CardContent className="p-8">
                 <h3 className="font-serif text-2xl font-bold text-foreground mb-6">Visit Our Showroom</h3>
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPin className="h-5 w-5 text-primary" />
+                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 hover-scale animate-float">
+                     <MapPin className="h-5 w-5 text-primary animate-pulse" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Address</h4>
@@ -218,8 +218,8 @@ export function ContactSection() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="h-5 w-5 text-primary" />
+                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 hover-scale animate-float">
+                     <Phone className="h-5 w-5 text-primary animate-pulse" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Phone</h4>
@@ -229,8 +229,8 @@ export function ContactSection() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="h-5 w-5 text-primary" />
+                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 hover-scale animate-float">
+                     <Mail className="h-5 w-5 text-primary animate-pulse" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Email</h4>
@@ -240,8 +240,8 @@ export function ContactSection() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Clock className="h-5 w-5 text-primary" />
+                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 hover-scale animate-float">
+                     <Clock className="h-5 w-5 text-primary animate-pulse" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Hours</h4>
@@ -256,11 +256,11 @@ export function ContactSection() {
 
                 <div className="mt-8 pt-6 border-t border-border">
                   <div className="flex flex-wrap gap-3">
-                    <Badge variant="secondary" className="bg-secondary/10 text-secondary">
+                   <Badge variant="secondary" className="bg-secondary/10 text-secondary hover-scale animate-pulse-glow">
                       <Calendar className="h-3 w-3 mr-1" />
                       Free Consultation
                     </Badge>
-                    <Badge variant="secondary" className="bg-accent/10 text-accent">
+                   <Badge variant="secondary" className="bg-accent/10 text-accent hover-scale animate-pulse-glow">
                       <Award className="h-3 w-3 mr-1" />
                       Licensed & Insured
                     </Badge>
@@ -270,11 +270,11 @@ export function ContactSection() {
             </Card>
 
             {/* Map */}
-            <Card className="border-0 shadow-lg">
+           <Card className="border-0 shadow-lg hover-lift animate-slide-in-right stagger-2">
               <CardContent className="p-0">
                 <div className="h-64 bg-muted rounded-lg flex items-center justify-center">
                   <div className="text-center">
-                    <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-2" />
+                   <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-2 animate-float" />
                     <p className="text-muted-foreground">Interactive Map</p>
                     <p className="text-sm text-muted-foreground">123 Design District Avenue, LA</p>
                   </div>
@@ -285,7 +285,7 @@ export function ContactSection() {
         </div>
 
         {/* Promotional Banner */}
-        <div className="mt-16 bg-gradient-to-r from-accent/10 to-secondary/10 rounded-2xl p-8 sm:p-12 text-center">
+        <div className="mt-16 bg-gradient-to-r from-accent/10 to-secondary/10 rounded-2xl p-8 sm:p-12 text-center hover-lift animate-slide-in-up">
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mb-4">
             Limited Time: Free Design Consultation
           </h3>
@@ -294,14 +294,14 @@ export function ContactSection() {
             10% off your first order.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-3">
+            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 px-8 py-3 hover-lift animate-pulse-glow">
               <MessageSquare className="h-4 w-4 mr-2" />
               Book Free Consultation
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent px-8 py-3"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent px-8 py-3 hover-lift"
             >
               Call Now: (555) 123-TILE
             </Button>

@@ -79,8 +79,8 @@ export function ServicesSection() {
     <section className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <div className="w-12 h-1 bg-secondary mx-auto mb-6" />
+        <div className="text-center mb-16 animate-slide-in-up">
+          <div className="w-12 h-1 bg-secondary mx-auto mb-6 animate-shimmer" />
           <ScrollReveal
             containerClassName="mb-6"
             textClassName="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance"
@@ -104,11 +104,11 @@ export function ServicesSection() {
         {/* Services Timeline */}
         <div className="relative mb-20">
           {/* Central vertical line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-primary via-secondary to-primary h-full rounded-full opacity-60" />
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-primary via-secondary to-primary h-full rounded-full opacity-60 animate-shimmer" />
 
           {/* Timeline dots gradient overlay */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/20 to-transparent rounded-full" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/20 to-transparent rounded-full animate-pulse" />
           </div>
 
           <div className="space-y-16">
@@ -119,8 +119,8 @@ export function ServicesSection() {
               return (
                 <div key={service.title} className="relative">
                   {/* Timeline dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10">
-                    <div className="w-6 h-6 bg-primary rounded-full border-4 border-background shadow-lg">
+                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10 animate-float">
+                    <div className="w-6 h-6 bg-primary rounded-full border-4 border-background shadow-lg animate-pulse-glow">
                       <div className="w-full h-full bg-gradient-to-br from-primary to-secondary rounded-full animate-pulse" />
                     </div>
                   </div>
@@ -129,9 +129,9 @@ export function ServicesSection() {
                   <div className={`flex ${isLeft ? "justify-start pr-8 lg:pr-16" : "justify-end pl-8 lg:pl-16"}`}>
                     <div className={`w-full max-w-md ${isLeft ? "lg:max-w-lg" : "lg:max-w-lg"}`}>
                       <Card
-                        className={`group cursor-pointer transition-all duration-500 hover:shadow-2xl border-0 shadow-lg relative overflow-hidden transform hover:scale-105 ${isLeft
-                            ? "hover:-translate-x-2 animate-slide-in-left"
-                            : "hover:translate-x-2 animate-slide-in-right"
+                        className={`group cursor-pointer transition-all duration-700 hover:shadow-2xl border-0 shadow-lg relative overflow-hidden hover-lift ${isLeft
+                            ? "animate-slide-in-left"
+                            : "animate-slide-in-right"
                           }`}
                         style={{
                           animationDelay: `${index * 200}ms`,
@@ -148,7 +148,7 @@ export function ServicesSection() {
 
                         {service.popular && (
                           <div className="absolute top-4 right-4 z-10">
-                            <Badge className="bg-gradient-to-r from-accent to-secondary text-white font-medium shadow-md">
+                            <Badge className="bg-gradient-to-r from-accent to-secondary text-white font-medium shadow-md animate-pulse-glow">
                               Popular
                             </Badge>
                           </div>
@@ -157,12 +157,12 @@ export function ServicesSection() {
                         <CardContent className="p-6 lg:p-8">
                           <div className="mb-4">
                             <div
-                              className={`w-14 h-14 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center mb-4 group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-300 ${isLeft ? "group-hover:rotate-3" : "group-hover:-rotate-3"
+                              className={`w-14 h-14 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center mb-4 group-hover:from-primary/20 group-hover:to-secondary/20 transition-all duration-500 hover-scale ${isLeft ? "group-hover:rotate-3" : "group-hover:-rotate-3"
                                 }`}
                             >
-                              <IconComponent className="h-7 w-7 text-primary group-hover:text-secondary transition-colors duration-300" />
+                              <IconComponent className="h-7 w-7 text-primary group-hover:text-secondary transition-all duration-500 animate-float" />
                             </div>
-                            <h3 className="font-serif text-xl lg:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                            <h3 className="font-serif text-xl lg:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-500">
                               {service.title}
                             </h3>
                             <p className="text-muted-foreground leading-relaxed mb-4 text-sm lg:text-base">
@@ -174,10 +174,10 @@ export function ServicesSection() {
                             {service.features.map((feature, featureIndex) => (
                               <div
                                 key={feature}
-                                className="flex items-center text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300"
+                                className="flex items-center text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-500"
                                 style={{ animationDelay: `${index * 200 + featureIndex * 100}ms` }}
                               >
-                                <div className="w-2 h-2 bg-gradient-to-r from-secondary to-primary rounded-full mr-3 group-hover:scale-125 transition-transform duration-300" />
+                                <div className="w-2 h-2 bg-gradient-to-r from-secondary to-primary rounded-full mr-3 group-hover:scale-125 transition-transform duration-500 animate-pulse" />
                                 {feature}
                               </div>
                             ))}
@@ -185,7 +185,7 @@ export function ServicesSection() {
                         </CardContent>
 
                         {/* Hover gradient overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                       </Card>
                     </div>
                   </div>
@@ -196,7 +196,7 @@ export function ServicesSection() {
         </div>
 
         {/* Why Choose Us */}
-        <div className="bg-background rounded-2xl p-8 sm:p-12 shadow-lg">
+        <div className="bg-background rounded-2xl p-8 sm:p-12 shadow-lg hover-lift animate-slide-in-up">
           <div className="text-center mb-12">
             <ScrollReveal
               containerClassName="mb-4"
@@ -207,7 +207,7 @@ export function ServicesSection() {
             >
               Why Choose Luxe Tiles?
             </ScrollReveal>
-            <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-fade-in stagger-2">
               Our commitment to excellence and customer satisfaction sets us apart in the luxury tile industry.
             </p>
           </div>
@@ -216,9 +216,9 @@ export function ServicesSection() {
             {whyChooseUs.map((item, index) => {
               const IconComponent = item.icon
               return (
-                <div key={item.title} className="text-center group" style={{ animationDelay: `${index * 150}ms` }}>
-                  <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary/20 transition-colors duration-300">
-                    <IconComponent className="h-8 w-8 text-secondary" />
+                <div key={item.title} className={`text-center group hover-lift animate-scale-in stagger-${index + 1}`}>
+                  <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary/20 transition-all duration-500 hover-scale animate-float">
+                    <IconComponent className="h-8 w-8 text-secondary transition-transform duration-500 group-hover:scale-110" />
                   </div>
                   <h4 className="font-semibold text-foreground mb-2">{item.title}</h4>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
